@@ -8,6 +8,8 @@ public class GrenadeFunctionality : MonoBehaviour
     public float startTime = 3;
     float currentTime = 3;
 
+    public DamageType damageType;
+
    void Start()
     {
         currentTime = startTime;
@@ -24,7 +26,7 @@ public class GrenadeFunctionality : MonoBehaviour
                 if (item.tag == "Enemy")
                 {
                     Debug.Log(item.name + " Got bomb hit");
-                    item.GetComponent<Health>().TakeDamage(damage);
+                    item.GetComponent<Health>().TakeDamage(damage, damageType);
                 }
             }
             Destroy(gameObject);

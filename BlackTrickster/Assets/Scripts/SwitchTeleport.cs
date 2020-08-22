@@ -7,6 +7,7 @@ public class SwitchTeleport : MonoBehaviour
     public Camera cam;
     public LayerMask enemyMask;
     public float damage = 10;
+    public DamageType damageType;
 
     void Update()
     {
@@ -27,24 +28,15 @@ public class SwitchTeleport : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, enemyMask))
-            {
-                if (hit.transform.GetComponent<Health>())
-                {
-                    hit.transform.GetComponent<Health>().TakeDamage(damage);
-                }
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Health [] enemiesToExecute = FindObjectsOfType<Health>();
-            foreach(Health executableEnemies in enemiesToExecute)
-            {
-                executableEnemies.ExecuteMeDaddy();
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Mouse1))
+        //{
+        //    if (Physics.Raycast(ray, out hit, Mathf.Infinity, enemyMask))
+        //    {
+        //        if (hit.transform.GetComponent<Health>())
+        //        {
+        //            hit.transform.GetComponent<Health>().TakeDamage(damage, damageType);
+        //        }
+        //    }
+        //}
     }
 }
